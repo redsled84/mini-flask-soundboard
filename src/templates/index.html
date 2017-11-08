@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Awesome Sound Board</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+  <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <ul>
+      {% for key, item in soundboard.items() %}
+        {% if item == 'damn' %}
+          <button type="button" id="{{ item }}" class="btn btn-primary">
+            <h2>{{ key }}</h2>
+          </button>
+        {% endif %}
+        {% if item == 'heres_johnny' %}
+          <button type="button" id="{{ item }}" class="btn btn-success">
+            <h2>{{ key }}</h2>
+          </button>
+        {% endif %}
+        {% if item == 'say_what_again' %}
+          <button type="button" id="{{ item }}" class="btn btn-warning">
+            <h2>{{ key }}</h2>
+          </button>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <br>
+  </div>
+</body>
